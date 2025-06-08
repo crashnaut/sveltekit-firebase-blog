@@ -1,0 +1,102 @@
+{
+  "name": "@crashnaut/sveltekit-firebase-blog",
+  "version": "1.0.0",
+  "description": "A comprehensive SvelteKit blog system with Firebase backend, comments, likes, and admin interface",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "svelte": "./dist/index.js"
+    },
+    "./components": {
+      "types": "./dist/components/index.d.ts",
+      "svelte": "./dist/components/index.js"
+    },
+    "./firebase": {
+      "types": "./dist/firebase/index.d.ts",
+      "default": "./dist/firebase/index.js"
+    },
+    "./types": {
+      "types": "./dist/types/index.d.ts",
+      "default": "./dist/types/index.js"
+    },
+    "./utils": {
+      "types": "./dist/utils/index.d.ts",
+      "default": "./dist/utils/index.js"
+    },
+    "./stores": {
+      "types": "./dist/stores/index.d.ts",
+      "default": "./dist/stores/index.js"
+    }
+  },
+  "bin": {
+    "blog-manager": "bin/blog-manager.js",
+    "migrate-blogs": "bin/migrate-blogs.js"
+  },
+  "files": [
+    "dist",
+    "bin",
+    "README.md"
+  ],
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build && npm run package",
+    "preview": "vite preview",
+    "package": "svelte-kit sync && svelte-package && publint",
+    "prepublishOnly": "npm run package",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+    "lint": "prettier --check . && eslint .",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-auto": "^3.0.0",
+    "@sveltejs/kit": "^2.0.0",
+    "@sveltejs/package": "^2.0.0",
+    "@sveltejs/vite-plugin-svelte": "^3.0.0",
+    "@types/eslint": "^9.6.0",
+    "@types/inquirer": "^9.0.8",
+    "eslint": "^9.0.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-svelte": "^2.36.0",
+    "globals": "^15.0.0",
+    "prettier": "^3.1.1",
+    "prettier-plugin-svelte": "^3.1.2",
+    "publint": "^0.1.9",
+    "svelte": "^4.2.7",
+    "svelte-check": "^3.6.0",
+    "tslib": "^2.4.1",
+    "typescript": "^5.0.0",
+    "typescript-eslint": "^8.0.0",
+    "vite": "^5.0.11"
+  },
+  "peerDependencies": {
+    "firebase": "^10.0.0",
+    "svelte": "^4.0.0"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "inquirer": "^9.0.0",
+    "marked": "^9.0.0"
+  },
+  "keywords": [
+    "svelte",
+    "sveltekit",
+    "blog",
+    "firebase",
+    "comments",
+    "cms",
+    "typescript"
+  ],
+  "author": "Crashnaut",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/crashnaut/sveltekit-firebase-blog"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
