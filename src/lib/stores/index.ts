@@ -24,6 +24,16 @@ export const selectedPost = writable<BlogPost | null>(null);
 export const error = writable<string | null>(null);
 export const success = writable<string | null>(null);
 
+// Initialize authentication state management
+export function initializeBlogStores() {
+  // Import here to avoid circular dependency
+  import('../firebase/auth.js').then(({ initializeAuth }) => {
+    initializeAuth((authUser) => {
+      user.set(authUser);
+    });
+  });
+}
+
 // Reset functions
 export function resetBlogState() {
   blogPosts.set([]);

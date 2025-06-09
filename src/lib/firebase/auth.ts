@@ -2,6 +2,8 @@ import {
 	signInWithEmailAndPassword, 
 	signOut as firebaseSignOut, 
 	onAuthStateChanged,
+	signInWithPopup,
+	GoogleAuthProvider,
 	type User 
 } from 'firebase/auth';
 import { getFirebaseInstances } from './config.js';
@@ -40,6 +42,21 @@ export async function signIn(email: string, password: string): Promise<User> {
 	} catch (error) {
 		console.error('Error signing in:', error);
 		throw new Error('Failed to sign in. Please check your credentials.');
+	}
+}
+
+/**
+ * Sign in with Google
+ */
+export async function signInWithGoogle(): Promise<User> {
+	try {
+		const { auth } = getFirebaseInstances();
+		const provider = new GoogleAuthProvider();
+		const userCredential = await signInWithPopup(auth, provider);
+		return userCredential.user;
+	} catch (error) {
+		console.error('Error signing in with Google:', error);
+		throw new Error('Failed to sign in with Google.');
 	}
 }
 

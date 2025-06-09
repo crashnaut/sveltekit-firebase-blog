@@ -21,6 +21,7 @@ export {
   hasUserDislikedComment,
   getCurrentUser,
   signIn,
+  signInWithGoogle,
   signOut,
   isAuthenticated as checkAuthenticated,
   initializeBlogFirebase,
@@ -33,6 +34,10 @@ export { default as BlogList } from './components/BlogList.svelte';
 export { default as Comments } from './components/Comments.svelte';
 export { default as CommentForm } from './components/CommentForm.svelte';
 export { default as LikeButton } from './components/LikeButton.svelte';
+export { default as AdminPanel } from './components/AdminPanel.svelte';
 
 // Re-export utilities
 export * from './utils/index.js';
+
+// Convenience initialization function
+export { initializeBlogStores } from './stores/index.js';

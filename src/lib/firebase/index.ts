@@ -6,6 +6,7 @@ export {
   getCurrentUser, 
   initializeAuth, 
   signIn, 
+  signInWithGoogle,
   signOut, 
   isAuthenticated 
 } from './auth.js';
